@@ -213,13 +213,32 @@ h3 { font-size: 1.5rem; font-weight: 600; color: var(--color-navy); margin-botto
 .page-header p { color: #c9d0e4; font-size: 1.2rem; max-width: 42rem; font-weight: 300; }
 
 /* ---------- 8. Strip ---------- */
-.strip { background: var(--color-cream); border-bottom: 1px solid var(--color-line); }
-.strip .container {
-  display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
-  padding-top: 1.4rem; padding-bottom: 1.4rem;
-  font-family: var(--font-serif); font-size: 1.3rem; color: var(--color-navy);
+.strip {
+   background: var(--color-cream);
+  border-bottom: 1px solid var(--color-line);
+  overflow: hidden;
+  padding: 1.4rem 0;
 }
+.strip__track {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  width: max-content;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-navy);
+  white-space: nowrap;
+  animation: strip-scroll 26s linear infinite;
+}
+.strip:hover .strip__track { animation-play-state: paused; }
+.strip__item { flex-shrink: 0; }
+.strip__sep { color: var(--color-gold); font-weight: 600; }
 .strip b { color: var(--color-gold); font-weight: 600; }
+
+@keyframes strip-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 
 /* ---------- 9. Cards & grids ---------- */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
