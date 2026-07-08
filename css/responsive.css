@@ -59,4 +59,14 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
+
+  .strip { overflow: hidden; }
+  .strip__track {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    transform: none !important;
+  }
+  .strip__item[aria-hidden="true"],
+  .strip__sep[aria-hidden="true"] { display: none; }
 }
