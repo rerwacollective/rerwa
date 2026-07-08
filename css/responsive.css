@@ -1,0 +1,62 @@
+/* ============================================================
+   RERWA Co. — Responsive Stylesheet
+   Breakpoints layered on top of style.css.
+   Load AFTER style.css.
+   ============================================================ */
+
+/* ---------- Tablet & below (≤ 900px) ---------- */
+@media (max-width: 900px) {
+  .container { padding: 0 var(--space-md); }
+
+  .grid-2,
+  .grid-3,
+  .contact-grid,
+  .values { grid-template-columns: 1fr; }
+
+  .prog-row { grid-template-columns: 1fr; gap: 0.6rem; }
+
+  /* Mobile navigation */
+  .nav__toggle { display: block; }
+  .nav__links {
+    position: absolute;
+    top: 76px; left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--color-line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav__links.is-open { max-height: 400px; }
+  .nav__link {
+    padding: 1rem var(--space-md);
+    border-bottom: 1px solid var(--color-line);
+    width: 100%;
+  }
+  .nav__link:hover,
+  .nav__link[aria-current="page"] { border-bottom-color: var(--color-line); }
+}
+
+/* ---------- Mobile (≤ 600px) ---------- */
+@media (max-width: 600px) {
+  section { padding: var(--space-xl) 0; }
+
+  .hero .container { padding-top: 4rem; padding-bottom: 4.5rem; }
+  .hero p { font-size: 1.1rem; }
+  .hero__cta { flex-direction: column; align-items: flex-start; }
+  .hero__cta .btn { width: 100%; text-align: center; }
+
+  .strip .container { gap: 1rem; font-size: 1.1rem; flex-direction: column; align-items: center; }
+
+  .site-footer .container { flex-direction: column; gap: 1.75rem; }
+
+  .btn { width: 100%; text-align: center; }
+  .band .btn { width: auto; }
+}
+
+/* ---------- Reduced motion (accessibility) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

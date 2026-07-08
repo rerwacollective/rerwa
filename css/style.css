@@ -1,0 +1,308 @@
+/* ============================================================
+   RERWA Co. — Main Stylesheet
+   Centralised design tokens, base styles, components & layout.
+   Brand: navy #1a2350 · gold #b8862f · Cormorant Garamond + Inter
+   ============================================================ */
+
+/* ---------- 1. Design Tokens (CSS custom properties) ---------- */
+:root {
+  /* Brand colours */
+  --color-navy:      #1a2350;
+  --color-ink:       #0f1638;
+  --color-gold:      #b8862f;
+  --color-gold-light:#d0a24f;
+  --color-cream:     #f5f3ee;
+  --color-white:     #ffffff;
+  --color-grey:      #5a5f70;
+  --color-line:      #e7e4dc;
+  --color-text:      #33384a;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing scale */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 5.75rem;
+
+  /* Layout */
+  --container-max: 1180px;
+  --radius:        14px;
+  --radius-sm:     8px;
+  --transition:    0.2s ease;
+}
+
+/* ---------- 2. Reset & Base ---------- */
+*,
+*::before,
+*::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  line-height: 1.65;
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-serif { font-family: var(--font-serif); }
+
+a { text-decoration: none; color: inherit; }
+
+img, svg { max-width: 100%; display: block; }
+
+/* Accessible focus states */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-gold-light);
+  outline-offset: 2px;
+}
+
+/* Skip link for keyboard/screen-reader users */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-navy);
+  color: #fff;
+  padding: var(--space-xs) var(--space-sm);
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* ---------- 3. Layout helpers ---------- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+section { padding: var(--space-2xl) 0; }
+
+.section-cream { background: var(--color-cream); }
+
+.text-center { text-align: center; }
+
+/* ---------- 4. Typography ---------- */
+.eyebrow {
+  color: var(--color-gold);
+  letter-spacing: 3px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 600; line-height: 1.1; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 600; color: var(--color-navy); line-height: 1.15; margin-bottom: var(--space-md); }
+h3 { font-size: 1.5rem; font-weight: 600; color: var(--color-navy); margin-bottom: 0.6rem; }
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--color-grey);
+  max-width: 48rem;
+  margin-bottom: var(--space-lg);
+  font-weight: 300;
+}
+
+.prose p { font-size: 1.06rem; color: var(--color-text); margin-bottom: var(--space-md); max-width: 51rem; }
+.prose em { font-style: italic; }
+
+/* ---------- 5. Buttons ---------- */
+.btn {
+  display: inline-block;
+  background: var(--color-navy);
+  color: #fff;
+  padding: 0.75rem 1.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.btn:hover { background: var(--color-ink); }
+.btn--gold { background: var(--color-gold); }
+.btn--gold:hover { background: #a2761f; }
+.btn--ghost { background: transparent; border: 1.5px solid rgba(255,255,255,0.55); color: #fff; }
+.btn--ghost:hover { background: rgba(255,255,255,0.1); }
+.btn--lg { padding: 0.95rem 2.1rem; font-size: 0.95rem; }
+
+/* ---------- 6. Header / Navigation ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-line);
+  z-index: 20;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+.nav__brand { display: flex; align-items: center; gap: 0.8rem; }
+.nav__brand-mark { width: 38px; height: 27px; }
+.nav__brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: var(--color-navy);
+}
+.nav__links { display: flex; gap: 2.2rem; list-style: none; }
+.nav__link {
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+.nav__link:hover,
+.nav__link[aria-current="page"] { color: var(--color-navy); border-color: var(--color-gold); }
+
+.nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+.nav__toggle span {
+  display: block; width: 24px; height: 2px;
+  background: var(--color-navy); margin: 5px 0;
+  transition: var(--transition);
+}
+
+/* ---------- 7. Hero ---------- */
+.hero {
+  background: linear-gradient(155deg, var(--color-navy) 0%, var(--color-ink) 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -160px; top: -120px;
+  width: 560px; height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,134,47,0.22), transparent 68%);
+}
+.hero .container { padding-top: 6.5rem; padding-bottom: 7rem; position: relative; z-index: 2; }
+.hero .eyebrow { color: var(--color-gold-light); }
+.hero h1 { font-style: italic; font-weight: 500; max-width: 58rem; margin-bottom: var(--space-md); }
+.hero p { font-size: 1.25rem; color: #c9d0e4; max-width: 40rem; margin-bottom: var(--space-lg); font-weight: 300; }
+.hero__cta { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+
+/* Page header (interior pages) */
+.page-header { background: var(--color-navy); color: #fff; }
+.page-header .container { padding-top: 4.75rem; padding-bottom: 4.4rem; }
+.page-header h1 { font-style: normal; margin-bottom: 0.6rem; }
+.page-header p { color: #c9d0e4; font-size: 1.2rem; max-width: 42rem; font-weight: 300; }
+
+/* ---------- 8. Strip ---------- */
+.strip { background: var(--color-cream); border-bottom: 1px solid var(--color-line); }
+.strip .container {
+  display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+  padding-top: 1.4rem; padding-bottom: 1.4rem;
+  font-family: var(--font-serif); font-size: 1.3rem; color: var(--color-navy);
+}
+.strip b { color: var(--color-gold); font-weight: 600; }
+
+/* ---------- 9. Cards & grids ---------- */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+
+.card {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 2.2rem;
+  background: #fff;
+}
+.card--dark { background: var(--color-navy); color: #fff; border: none; }
+.card--dark h3 { color: var(--color-gold-light); }
+.card p { color: var(--color-grey); font-size: 0.97rem; }
+.card--dark p { color: #c9d0e4; }
+
+/* Programme rows */
+.prog-list { display: flex; flex-direction: column; gap: 1.35rem; }
+.prog-row {
+  display: grid; grid-template-columns: 210px 1fr; gap: 1.75rem;
+  border: 1px solid var(--color-line); border-radius: var(--radius);
+  padding: 1.75rem 2rem; align-items: start;
+}
+.prog-row__title { font-family: var(--font-serif); font-size: 1.44rem; font-weight: 600; color: var(--color-navy); }
+.prog-row__tag { display: block; font-size: 0.72rem; letter-spacing: 2px; color: var(--color-gold); margin-top: 0.35rem; font-weight: 600; }
+.prog-row p { color: var(--color-grey); font-size: 0.96rem; }
+
+/* Values grid */
+.values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 0.9rem; }
+.value {
+  display: flex; gap: 0.9rem; align-items: flex-start;
+  padding: 1.1rem; border: 1px solid var(--color-line); border-radius: 10px;
+}
+.value__letter { font-family: var(--font-serif); font-size: 2rem; font-weight: 700; color: var(--color-gold); line-height: 1; min-width: 1.75rem; }
+.value b { color: var(--color-navy); font-size: 1rem; }
+.value span { color: var(--color-grey); font-size: 0.85rem; }
+
+/* Quote */
+.quote {
+  font-family: var(--font-serif); font-size: 1.85rem; font-style: italic;
+  color: var(--color-navy); line-height: 1.4; max-width: 56rem;
+  margin: 0 auto; text-align: center;
+}
+
+/* ---------- 10. CTA band ---------- */
+.band { background: linear-gradient(120deg, var(--color-gold), #8f6820); color: #fff; text-align: center; }
+.band .container { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+.band h2 { color: #fff; margin: 0 auto var(--space-sm); }
+.band p { color: #f6ecda; max-width: 36rem; margin: 0 auto var(--space-md); font-size: 1.12rem; font-weight: 300; }
+.band .btn { background: #fff; color: var(--color-navy); font-weight: 600; }
+
+/* ---------- 11. Forms ---------- */
+.form__field { margin-bottom: 1.15rem; }
+.form__field label { display: block; font-size: 0.82rem; color: var(--color-navy); font-weight: 600; margin-bottom: 0.35rem; }
+.form__field input,
+.form__field textarea {
+  width: 100%; border: 1px solid var(--color-line); border-radius: var(--radius-sm);
+  padding: 0.8rem 0.95rem; font-family: var(--font-sans); font-size: 0.95rem; color: var(--color-ink);
+}
+.form__field input:focus,
+.form__field textarea:focus { outline: none; border-color: var(--color-gold); }
+.form__status { margin-top: 0.9rem; font-size: 0.9rem; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.75rem; }
+.contact-info__item { margin-bottom: 1.5rem; }
+.contact-info__item h4 { color: var(--color-navy); font-size: 0.95rem; margin-bottom: 0.3rem; }
+.contact-info__item p { color: var(--color-grey); font-size: 0.95rem; }
+
+/* ---------- 12. Footer ---------- */
+.site-footer { background: var(--color-ink); color: #9aa3be; }
+.site-footer .container {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;
+  padding-top: 3.4rem; padding-bottom: 2.4rem;
+}
+.site-footer__brand-name {
+  font-family: var(--font-serif); font-size: 1.5rem; letter-spacing: 4px; color: #fff;
+  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.7rem;
+}
+.site-footer__brand-mark { width: 32px; height: 23px; }
+.site-footer__tagline { font-family: var(--font-serif); font-style: italic; color: var(--color-gold-light); }
+.site-footer__col h4 { color: #fff; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.9rem; font-weight: 600; }
+.site-footer__col a { display: block; color: #9aa3be; font-size: 0.9rem; margin-bottom: 0.55rem; transition: color var(--transition); }
+.site-footer__col a:hover { color: var(--color-gold-light); }
+.site-footer__copyright {
+  border-top: 1px solid rgba(255,255,255,0.1); text-align: center;
+  padding: 1.25rem; font-size: 0.8rem; color: #7a83a0;
+}
