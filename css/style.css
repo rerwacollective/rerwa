@@ -214,13 +214,38 @@ h3 { font-size: 1.5rem; font-weight: 600; color: var(--color-navy); margin-botto
 
 /* ---------- 8. Strip ---------- */
 .strip {
-   background: var(--color-cream);
+  background: var(--color-cream);
   border-bottom: 1px solid var(--color-line);
   overflow: hidden;
   padding: 1.4rem 0;
+  position: relative;
+  min-height: 3.9rem;
 }
-.strip__track {
+.strip__intro {
   display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-navy);
+}
+.strip__intro-item {
+  opacity: 0;
+  transform: translateY(1.2em);
+  animation: strip-rise 0.6s ease forwards;
+}
+.strip__intro-item:nth-child(1) { animation-delay: 0.15s; }
+.strip__intro-item:nth-child(2) { animation-delay: 0.75s; }
+.strip__intro-item:nth-child(3) { animation-delay: 1.35s; }
+.strip__intro b { color: var(--color-gold); font-weight: 600; }
+
+@keyframes strip-rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.strip__track {
+  display: none;
   align-items: center;
   gap: 2.5rem;
   width: max-content;
@@ -230,10 +255,12 @@ h3 { font-size: 1.5rem; font-weight: 600; color: var(--color-navy); margin-botto
   white-space: nowrap;
   animation: strip-scroll 26s linear infinite;
 }
+.strip.is-scrolling .strip__intro { display: none; }
+.strip.is-scrolling .strip__track { display: flex; }
 .strip:hover .strip__track { animation-play-state: paused; }
 .strip__item { flex-shrink: 0; }
 .strip__sep { color: var(--color-gold); font-weight: 600; }
-.strip b { color: var(--color-gold); font-weight: 600; }
+.strip__track b { color: var(--color-gold); font-weight: 600; }
 
 @keyframes strip-scroll {
   from { transform: translateX(0); }
