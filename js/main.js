@@ -86,9 +86,18 @@
   }
 
   /* ---------- Init on DOM ready ---------- */
+  function initStrip() {
+    var strip = document.querySelector('.strip');
+    if (!strip) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    window.setTimeout(function () {
+      strip.classList.add('is-scrolling');
+    }, 2100);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
     initActiveLink();
     initContactForm();
+    initStrip();
   });
-})();
