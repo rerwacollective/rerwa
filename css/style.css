@@ -1,7 +1,7 @@
 /* ============================================================
    RERWA Co. — Main Stylesheet
    Centralised design tokens, base styles, components & layout.
-   Brand: navy #1a2350 · gold #b8862f · Cormorant Garamond + Inter
+   Brand: navy #1a2350 · gold #8a6420 · Cormorant Garamond + Inter
    ============================================================ */
 
 /* ---------- 1. Design Tokens (CSS custom properties) ---------- */
@@ -9,7 +9,7 @@
   /* Brand colours */
   --color-navy:      #1a2350;
   --color-ink:       #0f1638;
-  --color-gold:      #b8862f;
+  --color-gold:      #8a6420;
   --color-gold-light:#d0a24f;
   --color-cream:     #f5f3ee;
   --color-white:     #ffffff;
