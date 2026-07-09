@@ -340,7 +340,7 @@ h3 { font-size: 1.5rem; font-weight: 600; color: var(--color-navy); margin-botto
   padding: 1.75rem 2rem; align-items: start;
 }
 .prog-row__title { font-family: var(--font-serif); font-size: 1.44rem; font-weight: 600; color: var(--color-navy); }
-.prog-row__tag { display: block; font-size: 0.8rem; letter-spacing: 2px; color: var(--color-gold); margin-top: 0.35rem; font-weight: 700; }
+.prog-row__tag { display: block; font-size: 0.82rem; letter-spacing: 2px; color: var(--color-gold); margin-top: 0.4rem; font-weight: 700; font-family: var(--font-sans); }
 .prog-row p { color: var(--color-grey); font-size: 0.96rem; }
 
 /* Values grid */
