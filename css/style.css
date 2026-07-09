@@ -229,8 +229,6 @@ h3 { font-size: 1.5rem; font-weight: 600; color: var(--color-navy); margin-botto
   font-family: var(--font-serif);
   font-size: 1.3rem;
   color: var(--color-navy);
-  position: absolute;
-  left: 0; right: 0; top: 1.4rem;
 }
 .strip__intro-item {
   opacity: 0;
@@ -241,13 +239,32 @@ h3 { font-size: 1.5rem; font-weight: 600; color: var(--color-navy); margin-botto
 .strip__intro-item:nth-child(2) { animation-delay: 0.75s; }
 .strip__intro-item:nth-child(3) { animation-delay: 1.35s; }
 .strip__intro b { color: var(--color-gold); font-weight: 600; }
-.strip__intro { animation: strip-intro-out 0.5s ease 2.1s forwards; }
 
 @keyframes strip-rise {
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes strip-intro-out {
-  to { opacity: 0; visibility: hidden; }
+
+.strip__track {
+  display: none;
+  align-items: center;
+  gap: 2.5rem;
+  width: max-content;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-navy);
+  white-space: nowrap;
+  animation: strip-scroll 26s linear infinite;
+}
+.strip.is-scrolling .strip__intro { display: none; }
+.strip.is-scrolling .strip__track { display: flex; }
+.strip:hover .strip__track { animation-play-state: paused; }
+.strip__item { flex-shrink: 0; }
+.strip__sep { color: var(--color-gold); font-weight: 600; }
+.strip__track b { color: var(--color-gold); font-weight: 600; }
+
+@keyframes strip-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 .strip__track {
