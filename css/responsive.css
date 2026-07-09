@@ -60,13 +60,7 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 
-  .strip { overflow: hidden; }
-  .strip__track {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    transform: none !important;
-  }
-  .strip__item[aria-hidden="true"],
-  .strip__sep[aria-hidden="true"] { display: none; }
+  .strip__intro-item { opacity: 1 !important; transform: none !important; }
+  .strip__track { display: none !important; }
+  .strip.is-scrolling .strip__intro { display: flex !important; }
 }
