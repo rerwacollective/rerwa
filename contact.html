@@ -113,7 +113,39 @@
     </div>
     <p class="site-footer__copyright">&copy; 2026 RERWA Co. Ltd &middot; Principled people. Meaningful lives.</p>
   </footer>
-
+<script>
+var RERWA_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzzLnGMqHcv6b2Ydl_HMRo7UhRxDsYSkKcoYxowAqUDvSIuCh3no56-zdOQ09nyXuM/exec";
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var s = document.getElementById('form-status');
+    var b = form.querySelector('button[type="submit"]');
+    var n = document.getElementById('cf-name').value.trim();
+    var em = document.getElementById('cf-email').value.trim();
+    var o = document.getElementById('cf-org').value.trim();
+    var m = document.getElementById('cf-message').value.trim();
+    function show(msg, c) { s.style.display = 'block'; s.style.color = c; s.textContent = msg; }
+    if (!n || !em || !m) { show('Please fill in your name, email, and message.', '#b8862f'); return; }
+    b.disabled = true; b.textContent = 'Sending...';
+    var d = new FormData();
+    d.append('name', n); d.append('email', em);
+    d.append('organisation', o); d.append('message', m);
+    fetch(RERWA_FORM_ENDPOINT, { method: 'POST', body: d }).then(function () {
+      show('Thank you - your message has been sent. We will be in touch soon.', '#1e7a46');
+      document.getElementById('cf-name').value = '';
+      document.getElementById('cf-email').value = '';
+      document.getElementById('cf-org').value = '';
+      document.getElementById('cf-message').value = '';
+      b.disabled = false; b.textContent = 'Send message';
+    }).catch(function () {
+      show('Sorry, something went wrong. Please email info@rerwacollective.org.', '#b8862f');
+      b.disabled = false; b.textContent = 'Send message';
+    });
+  });
+})();
+</script>
   <script src="js/main.js"></script>
 </body>
 </html>
