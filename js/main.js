@@ -40,7 +40,7 @@
 
   /* ---------- 3. Contact form submission ---------- */
   /* Set your Google Apps Script Web App URL here to activate the form. */
-  var RERWA_FORM_ENDPOINT = 'PASTE_YOUR_WEB_APP_URL_HERE';
+  var RERWA_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzzLnGMqHcv6b2Ydl_HMRo7UhRxDsYSkKcoYxowAqUDvSIuCh3no56-zdOQ09nyXuM/exec';
 
   function initContactForm() {
     var form = document.getElementById('contact-form');
