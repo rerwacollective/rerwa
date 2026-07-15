@@ -7,157 +7,220 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-T71RK4QW1S');
 </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RERWA · Who We Are</title>
-  <meta name="description" content="RERWA is a purpose-driven company that helps people discover who they are, why they are here, and how to contribute — through formation, not just information.">
+  <title>RERWA | Principled People. Meaningful Lives.</title>
+  <meta name="description" content="Build the capacity for a life of meaning — personal development, character formation, leadership, and organizational culture.">
+  <meta name="keywords" content="personal development, character formation, leadership development, human development institution, Rwanda">
   <meta name="author" content="RERWA Co. Ltd">
 
   <!-- Open Graph / social sharing -->
-  <meta property="og:title" content="RERWA · Who We Are">
-  <meta property="og:description" content="RERWA is a purpose-driven company that helps people discover who they are, why they are here, and how to contribute — through formation, not just information.">
+  <meta property="og:title" content="RERWA | Principled People. Meaningful Lives.">
+  <meta property="og:description" content="Build the capacity for a life of meaning — personal development, character formation, leadership, and organizational culture.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://rerwacollective.org/index.html">
+  <meta property="og:url" content="https://rerwacollective.org/">
   <meta property="og:site_name" content="RERWA Collective">
   <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://rerwacollective.org/">
 
   <!-- Favicons -->
   <link rel="icon" href="images/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="images/favicon_32.png">
 
-  <!-- Fonts: preconnect + display=swap for performance -->
+  <!-- Fonts: Cabin as the web-safe Gill Sans substitute (guide Part 7) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets: base then responsive -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
+  <header class="site-header site-header--overlay">
     <div class="container">
       <nav class="nav" aria-label="Primary">
         <a class="nav__brand" href="index.html" aria-label="RERWA home">
-          <svg class="nav__brand-mark" viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#1a2350" d="M400 170 L620 430 L560 430 L400 240 L240 430 L180 430 Z"/><path fill="#b8862f" d="M400 320 L560 510 L500 510 L400 390 L300 510 L240 510 Z"/></svg><span class="nav__brand-name">RERWA</span>
+          <!-- Reusable logo component: swap images/rerwa-logo.svg once the
+               compass-needle R logo is delivered (guide Part 7). -->
+          <img class="nav__brand-mark" src="images/rerwa-logo.svg" alt="" width="34" height="34">
+          <span class="nav__brand-name">RERWA</span>
         </a>
         <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
           <span></span><span></span><span></span>
         </button>
         <ul class="nav__links" id="nav-links">
-          <li><a class="nav__link" href="index.html" aria-current="page">Who We Are</a></li>
+          <li><a class="nav__link" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="nav__link" href="who-we-are.html">Who We Are</a></li>
+          <li><a class="nav__link" href="our-approach.html">Our Approach</a></li>
           <li><a class="nav__link" href="what-we-do.html">What We Do</a></li>
+          <li><a class="nav__link" href="research-insights.html">Research &amp; Insights</a></li>
           <li><a class="nav__link" href="contact.html">Contact</a></li>
         </ul>
-        <a class="btn btn--gold" href="contact.html">Work with us</a>
+        <a class="btn btn--gold" href="contact.html">Work With Us</a>
       </nav>
     </div>
   </header>
   <main id="main">
-    <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Who We Are</p>
-        <h1>“The world does not lack talented people. It lacks people who are driven by conviction beyond ambition; those who understand that their capacity is meant for significance, not just their success.”</h1>
-        <div class="hero__cta">
-          <a class="btn btn--gold btn--lg" href="what-we-do.html">What we do</a>
-          <a class="btn btn--ghost btn--lg" href="contact.html">Work with us</a>
+    <!-- HERO — two-column, transparent nav, fade-up + slow zoom (guide Part 1) -->
+    <section class="hero-home">
+      <div class="hero-home__grid">
+        <div class="hero-home__content">
+          <p class="label">Building Capacity for Meaningful Lives and Lasting Impact</p>
+          <h1>Meaningful lives and lasting impact are built through intentional formation.</h1>
+          <p>We build the capacity that enables people and institutions to live meaningful lives and create lasting impact.</p>
+          <div class="btn-row">
+            <a class="btn btn--gold btn--lg" href="contact.html">Work With Us</a>
+            <a class="btn btn--ghost-light btn--lg" href="what-we-do.html">What We Do</a>
+          </div>
+        </div>
+        <div class="hero-home__media">
+          <div class="photo " role="img" aria-label="Photography placeholder" data-direction="A person mid-stride outdoors, golden-hour light, looking beyond the camera — aspiration and quiet resolve, authentic Rwandan setting. No staged corporate imagery.">
+            <span class="photo__note">Photography to come</span>
+          </div>
         </div>
       </div>
     </section>
 
-<aside class="strip" aria-label="RERWA motto">
-      <div class="strip__intro" id="strip-intro">
-        <span class="strip__intro-item"><b>Principled</b> people.</span>
-        <span class="strip__intro-item"><b>Meaningful</b> lives.</span>
-        <span class="strip__intro-item">From <b>kurera</b> &mdash; &ldquo;to be raised.&rdquo;</span>
-      </div>
-      <div class="strip__track" id="strip-track" aria-hidden="true">
-        <span class="strip__item"><b>Principled</b> people.</span>
-        <span class="strip__sep">&middot;</span>
-        <span class="strip__item"><b>Meaningful</b> lives.</span>
-        <span class="strip__sep">&middot;</span>
-        <span class="strip__item">From <b>kurera</b> &mdash; &ldquo;to be raised.&rdquo;</span>
-        <span class="strip__sep">&middot;</span>
-        <span class="strip__item"><b>Principled</b> people.</span>
-        <span class="strip__sep">&middot;</span>
-        <span class="strip__item"><b>Meaningful</b> lives.</span>
-        <span class="strip__sep">&middot;</span>
-        <span class="strip__item">From <b>kurera</b> &mdash; &ldquo;to be raised.&rdquo;</span>
-        <span class="strip__sep">&middot;</span>
-      </div>
-    </aside>
-
-    <section aria-labelledby="vm-heading">
+    <!-- THE GAP — text only, generous white space, the emotional turn -->
+    <section class="section">
       <div class="container">
-        <h2 id="vm-heading" class="visually-hidden" style="position:absolute;left:-999px;">Vision and mission</h2>
-        <div class="grid-2">
-          <article class="card"><h3>Our vision</h3><p>A world where principled people are raised to lead meaningful lives.</p></article>
-          <article class="card card--dark"><h3>Our mission</h3><p>To transform potential into purpose, and unlock possibilities for meaningful contribution and lasting impact.</p></article>
+        <div class="section__intro reveal">
+          <p class="label">The Gap</p>
+          <h2>Potential alone is never enough.</h2>
+          <p>Extraordinary potential without direction. Achievement without fulfillment. Influence without integrity. Leadership without stewardship. Organizations that grow in size while drifting away from the values that once defined them.</p>
+          <p>We don't see these as failures of knowledge. We see them as failures of formation.</p>
+        </div>
+        <div class="pull-quote reveal">
+          <p>Knowledge informs. Formation transforms.</p>
         </div>
       </div>
     </section>
 
-    <section class="section-cream" aria-labelledby="story-heading">
-      <div class="container prose">
-        <p class="eyebrow">Our Story</p>
-        <h2 id="story-heading">It began with a question that would not go away.</h2>
-        <p>RERWA’s story began with Sharon, RERWA’s Founder, pondering questions shaped by observation, her own realities, and conversations with people from every walk of life. Why do so many people perform for recognition instead of acting from conviction? Why do so many chase success without ever reaching significance? Why do so many carry real potential with no sense of direction?</p>
-        <p>The pattern was the same everywhere - expanding individuals, but contracting communities, families without structure, organizations obsessed with performative narratives instead of the real impact they were built to create. Out of these questions, a vision was birthed: to raise a generation that thinks and acts from conviction, solving problems beyond personal ambition.</p>
-        <p>RERWA is a Kinyarwanda word that translates directly to “be raised”, in the sense of holistic parenting. It is the imperative form of the verb <em>kurera</em>, to raise. It invites everyone, at every level, into the continuous process of formation and learning required to live a life of meaning and greater impact.</p>
-      </div>
-    </section>
-
-    <section aria-labelledby="values-heading">
+    <!-- WHO WE ARE — two columns, text + people-centred image -->
+    <section class="section section--white">
       <div class="container">
-        <p class="eyebrow">Our Values</p>
-        <h2 id="values-heading">The PRINCIPLED framework</h2>
-        <p class="lead">The internal force that keeps a person’s compass pointed toward their purpose — even when the external path is unclear.</p>
-        <div class="values">
-          <div class="value"><div class="value__letter">P</div><div><b>Purposeful</b><br><span>Leading with clarity of vision and a commitment to meaningful impact.</span></div></div>
-          <div class="value"><div class="value__letter">R</div><div><b>Responsibility</b><br><span>Wise, transparent stewardship of resources, relationships, and outcomes.</span></div></div>
-          <div class="value"><div class="value__letter">I</div><div><b>Integrity</b><br><span>Doing what is right consistently, in public and in private.</span></div></div>
-          <div class="value"><div class="value__letter">N</div><div><b>Nurturing</b><br><span>Servant leadership that invests in people’s growth with compassion and empathy.</span></div></div>
-          <div class="value"><div class="value__letter">C</div><div><b>Community</b><br><span>We are better together — building communities that support and challenge each other.</span></div></div>
-          <div class="value"><div class="value__letter">I</div><div><b>Innovation</b><br><span>Embracing creativity, curiosity, and continuous learning to solve real problems in new ways.</span></div></div>
-          <div class="value"><div class="value__letter">P</div><div><b>Persistence</b><br><span>Legacy-minded, long-term commitment to worthwhile goals.</span></div></div>
-          <div class="value"><div class="value__letter">L</div><div><b>Learning</b><br><span>A growth mindset that keeps us future-ready.</span></div></div>
-          <div class="value"><div class="value__letter">E</div><div><b>Excellence</b><br><span>Bringing our best to every piece of work and every interaction.</span></div></div>
-          <div class="value"><div class="value__letter">D</div><div><b>Discipline</b><br><span>Practicing consistency and self-mastery to do the right things, the right way.</span></div></div>
+        <div class="hero-page__grid">
+          <div class="reveal">
+            <p class="label">Who We Are</p>
+            <h2>A human development institution.</h2>
+            <p style="margin-top: var(--space-sm);">RERWA is a human development institution that builds the capacity individuals and organizations need to live meaningful lives and create lasting impact — through character formation, leadership development, strategic advisory, coaching, retreats, and research.</p>
+            <div class="btn-row">
+              <a class="btn btn--ghost" href="who-we-are.html">Who We Are</a>
+            </div>
+          </div>
+          <div class="photo " role="img" aria-label="Photography placeholder" data-direction="A strong people-centred image — genuine connection, not posed.">
+            <span class="photo__note">Photography to come</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="band">
+    <!-- OUR APPROACH — short teaser only (full detail lives on Our Approach) -->
+    <section class="section">
       <div class="container">
-        <h2>Walk with us</h2>
-        <p>Whether you lead a school, a team, or your own life, there is a place for you in this work.</p>
-        <a class="btn btn--lg" href="contact.html">Start a conversation</a>
+        <div class="section__intro reveal">
+          <p class="label">Our Approach</p>
+          <h2>How we think about capacity.</h2>
+          <p>At RERWA, we understand capacity as something built across four connected domains — individual, professional, organizational, and societal — through a continuous cycle of research, learning, application, and reflection, not a single event.</p>
+          <div class="btn-row">
+            <a class="btn btn--ghost" href="our-approach.html">Explore the Framework</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE DO — seven compact cards, evenly weighted -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="section__intro reveal">
+          <p class="label">What We Do</p>
+          <h2>Different pathways. One purpose.</h2>
+        </div>
+        <div class="cards cards--4 reveal">
+          <a class="card" href="what-we-do.html#character-formation"><h3>Character Formation</h3></a>
+          <a class="card" href="what-we-do.html#retreats"><h3>Retreats</h3></a>
+          <a class="card" href="what-we-do.html#leadership-development"><h3>Leadership Development</h3></a>
+          <a class="card" href="what-we-do.html#workshops-trainings"><h3>Workshops &amp; Trainings</h3></a>
+          <a class="card" href="what-we-do.html#strategic-advisory"><h3>Strategic Advisory</h3></a>
+          <a class="card" href="what-we-do.html#research-insights"><h3>Research &amp; Insights</h3></a>
+          <a class="card" href="what-we-do.html#content-media"><h3>Content &amp; Media</h3></a>
+        </div>
+        <div class="btn-row reveal">
+          <a class="btn btn--ghost" href="what-we-do.html">See How We Work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY teaser — links to Who We Are -->
+    <section class="section">
+      <div class="container">
+        <div class="section__intro reveal">
+          <p class="label">Our Story</p>
+          <h2>It began with a realization that something wasn't adding up.</h2>
+          <p>People are becoming more educated, more connected, and more ambitious. Yet too often, success fails to translate into fulfillment, and potential doesn't necessarily translate into meaningful contribution.</p>
+          <div class="btn-row">
+            <a class="btn btn--ghost" href="who-we-are.html#our-story">Read Our Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <h2>Different pathways. One purpose: building the capacity that enables people and institutions to contribute meaningfully and create lasting impact.</h2>
+        <a class="btn btn--gold btn--lg" href="contact.html">Work With Us</a>
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <div class="container">
-      <div class="site-footer__brand">
-        <div class="site-footer__brand-name"><svg class="site-footer__brand-mark" viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#1a2350" d="M400 170 L620 430 L560 430 L400 240 L240 430 L180 430 Z"/><path fill="#b8862f" d="M400 320 L560 510 L500 510 L400 390 L300 510 L240 510 Z"/></svg>RERWA</div>
-        <p class="site-footer__tagline">Principled people. Meaningful lives.</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="who-we-are.html">Who We Are</a></li>
+            <li><a href="our-approach.html">Our Approach</a></li>
+            <li><a href="what-we-do.html">What We Do</a></li>
+            <li><a href="research-insights.html">Research &amp; Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Engage</h3>
+          <ul>
+            <li><a href="contact.html">Work With Us</a></li>
+            <li><a href="contact.html#research-content-partnerships">Partnerships</a></li>
+            <li><a href="contact.html#general-enquiries">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="mailto:info@rerwacollective.org">Email</a></li>
+            <li><a href="https://www.linkedin.com/company/rerwa" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/rerwacollective" rel="noopener">Instagram</a></li>
+            <li><a href="https://x.com/rerwacollective" rel="noopener">X</a></li>
+          </ul>
+        </div>
       </div>
-      <nav class="site-footer__col" aria-label="Footer">
-        <h4>EXPLORE</h4>
-        <a href="index.html">Who We Are</a>
-        <a href="what-we-do.html">What We Do</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="site-footer__col">
-        <h4>CONTACT</h4>
-        <a href="mailto:info@rerwacollective.org">info@rerwacollective.org</a>
-        <p style="color:#9aa3be;font-size:0.9rem;">Kigali, Rwanda</p>
+
+      <form class="footer-news" id="newsletter-form" novalidate>
+        <label for="newsletter-email">Stay connected to RERWA's thinking.</label>
+        <input type="email" id="newsletter-email" name="email" placeholder="Your email address" required>
+        <button class="btn btn--gold" type="submit">Subscribe</button>
+        <span class="footer-news__done" role="status" aria-live="polite"></span>
+      </form>
+
+      <div class="footer-base">
+        <span class="tagline">Principled People. Meaningful Lives.</span>
+        <span>Kigali, Rwanda</span>
+        <span>&copy; 2026 RERWA Co. Ltd. All rights reserved.</span>
       </div>
     </div>
-    <p class="site-footer__copyright">&copy; 2026 RERWA Co. Ltd &middot; Principled people. Meaningful lives.</p>
   </footer>
 
   <script src="js/main.js"></script>

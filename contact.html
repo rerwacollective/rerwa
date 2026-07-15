@@ -7,33 +7,33 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-T71RK4QW1S');
 </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RERWA · Contact</title>
-  <meta name="description" content="Get in touch with RERWA: to bring our retreats, workshops, or programs to your school or organisation, or to partner with us.">
+  <title>Contact | RERWA</title>
+  <meta name="description" content="Work with RERWA — for your own personal development, your team's leadership, or your organization's culture. Start a conversation today.">
+  <meta name="keywords" content="work with RERWA, personal development, leadership training, organizational culture, sponsor a student">
   <meta name="author" content="RERWA Co. Ltd">
 
   <!-- Open Graph / social sharing -->
-  <meta property="og:title" content="RERWA · Contact">
-  <meta property="og:description" content="Get in touch with RERWA: to bring our retreats, workshops, or programs to your school or organisation, or to partner with us.">
+  <meta property="og:title" content="Contact | RERWA">
+  <meta property="og:description" content="Work with RERWA — for your own personal development, your team's leadership, or your organization's culture. Start a conversation today.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://rerwacollective.org/contact.html">
+  <meta property="og:url" content="https://rerwacollective.org/contact">
   <meta property="og:site_name" content="RERWA Collective">
   <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://rerwacollective.org/contact">
 
   <!-- Favicons -->
   <link rel="icon" href="images/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="images/favicon_32.png">
 
-  <!-- Fonts: preconnect + display=swap for performance -->
+  <!-- Fonts: Cabin as the web-safe Gill Sans substitute (guide Part 7) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets: base then responsive -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -43,118 +43,180 @@
     <div class="container">
       <nav class="nav" aria-label="Primary">
         <a class="nav__brand" href="index.html" aria-label="RERWA home">
-          <svg class="nav__brand-mark" viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#1a2350" d="M400 170 L620 430 L560 430 L400 240 L240 430 L180 430 Z"/><path fill="#b8862f" d="M400 320 L560 510 L500 510 L400 390 L300 510 L240 510 Z"/></svg><span class="nav__brand-name">RERWA</span>
+          <!-- Reusable logo component: swap images/rerwa-logo.svg once the
+               compass-needle R logo is delivered (guide Part 7). -->
+          <img class="nav__brand-mark" src="images/rerwa-logo.svg" alt="" width="34" height="34">
+          <span class="nav__brand-name">RERWA</span>
         </a>
         <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
           <span></span><span></span><span></span>
         </button>
         <ul class="nav__links" id="nav-links">
-          <li><a class="nav__link" href="index.html">Who We Are</a></li>
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="who-we-are.html">Who We Are</a></li>
+          <li><a class="nav__link" href="our-approach.html">Our Approach</a></li>
           <li><a class="nav__link" href="what-we-do.html">What We Do</a></li>
+          <li><a class="nav__link" href="research-insights.html">Research &amp; Insights</a></li>
           <li><a class="nav__link" href="contact.html" aria-current="page">Contact</a></li>
         </ul>
-        <a class="btn btn--gold" href="contact.html">Work with us</a>
+        <a class="btn btn--gold" href="contact.html">Work With Us</a>
       </nav>
     </div>
   </header>
   <main id="main">
-    <section class="page-header">
+    <section class="hero-page hero-page--text-only">
       <div class="container">
-        <p class="eyebrow">Contact</p>
-        <h1>Let’s start a conversation.</h1>
-        <p>Whether you’d like to bring RERWA to your school or organisation, partner with us, or simply learn more, we’d love to hear from you.</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="contact-grid">
+        <div class="hero-page__grid">
           <div>
-            <p class="eyebrow">Send a message</p>
-            <form id="contact-form" novalidate>
-              <div class="form__field">
-                <label for="cf-name">Your name</label>
-                <input type="text" id="cf-name" name="name" placeholder="Full name" required autocomplete="name">
-              </div>
-              <div class="form__field">
-                <label for="cf-email">Email</label>
-                <input type="email" id="cf-email" name="email" placeholder="you@example.com" required autocomplete="email">
-              </div>
-              <div class="form__field">
-                <label for="cf-org">Organisation / school</label>
-                <input type="text" id="cf-org" name="organisation" placeholder="Where you’re reaching out from" autocomplete="organization">
-              </div>
-              <div class="form__field">
-                <label for="cf-message">How can we help?</label>
-                <textarea id="cf-message" name="message" rows="5" placeholder="Tell us a little about what you’re looking for" required></textarea>
-              </div>
-              <button type="submit" class="btn btn--gold btn--lg">Send message</button>
-              <p id="form-status" class="form__status" role="status" aria-live="polite" style="display:none;"></p>
-            </form>
-          </div>
-          <div class="contact-info">
-            <p class="eyebrow">Reach us</p>
-            <div class="contact-info__item"><h4>Email</h4><p><a href="mailto:info@rerwacollective.org">info@rerwacollective.org</a></p></div>
-            <div class="contact-info__item"><h4>Location</h4><p>Kigali, Rwanda</p></div>
-            <div class="contact-info__item"><h4>What happens next</h4><p>We’ll get back to you to understand your goals, and propose a program or session that fits.</p></div>
+            <p class="label">Contact</p>
+            <h1>Let's start a conversation.</h1>
+            <p>Whether you're investing in your own growth, bringing RERWA to your school or organization, sponsoring someone else's journey, or simply want to learn more — we'd love to hear from you.</p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Enquiry options — tapping a card preselects the enquiry type below.
+         “Sponsor & Give Back” covers both financial sponsorship and pro bono
+         expert contribution; both route to one enquiry type for now. -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="enquiry-grid reveal">
+          <a class="card" href="#contact-form" id="personal-development" onclick="document.getElementById('enquiry-type').value='Personal Development';">
+            <h3>Personal Development</h3>
+            <p>For individuals seeking clarity, character, and leadership growth — building the systems that prepare your life for success and sustainability.</p>
+          </a>
+          <a class="card" href="#contact-form" id="character-formation" onclick="document.getElementById('enquiry-type').value='Character Formation';">
+            <h3>Character Formation</h3>
+            <p>For schools and parent committees exploring formation programmes for students.</p>
+          </a>
+          <a class="card" href="#contact-form" id="leadership-development-workshops" onclick="document.getElementById('enquiry-type').value='Leadership Development & Workshops';">
+            <h3>Leadership Development &amp; Workshops</h3>
+            <p>For professionals and teams building leadership, communication, and execution capability.</p>
+          </a>
+          <a class="card" href="#contact-form" id="strategic-advisory-organizational-culture" onclick="document.getElementById('enquiry-type').value='Strategic Advisory & Organizational Culture';">
+            <h3>Strategic Advisory &amp; Organizational Culture</h3>
+            <p>For organizations strengthening governance, culture, and systems.</p>
+          </a>
+          <a class="card" href="#contact-form" id="research-content-partnerships" onclick="document.getElementById('enquiry-type').value='Research & Content Partnerships';">
+            <h3>Research &amp; Content Partnerships</h3>
+            <p>For research collaboration, speaking, and public engagement.</p>
+          </a>
+          <a class="card" href="#contact-form" id="sponsor-give-back" onclick="document.getElementById('enquiry-type').value='Sponsor & Give Back';">
+            <h3>Sponsor &amp; Give Back</h3>
+            <p>For those who want to sponsor a student's or young professional's place in a RERWA programme, or contribute their own expertise — as a trainer, mentor, or advisor — free of charge, as a way to give back.</p>
+          </a>
+          <a class="card" href="#contact-form" id="general-enquiries" onclick="document.getElementById('enquiry-type').value='General Enquiries';">
+            <h3>General Enquiries</h3>
+            <p>For all other questions, introductions, and messages.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-layout">
+          <!-- To deliver messages, set data-endpoint to a live form endpoint
+               (e.g. a Google Apps Script web app or Formspree URL). Without it,
+               the confirmation shows but nothing is sent. -->
+          <form id="contact-form" novalidate data-endpoint="">
+            <div class="form__field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form__field">
+              <label for="organization">Organization</label>
+              <input type="text" id="organization" name="organization" autocomplete="organization">
+            </div>
+            <div class="form__field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form__field">
+              <label for="phone">Phone Number (optional)</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="form__field">
+              <label for="enquiry-type">Enquiry Type</label>
+              <select id="enquiry-type" name="enquiry_type" required>
+                  <option value="Personal Development">Personal Development</option>
+                  <option value="Character Formation">Character Formation</option>
+                  <option value="Leadership Development &amp; Workshops">Leadership Development &amp; Workshops</option>
+                  <option value="Strategic Advisory &amp; Organizational Culture">Strategic Advisory &amp; Organizational Culture</option>
+                  <option value="Research &amp; Content Partnerships">Research &amp; Content Partnerships</option>
+                  <option value="Sponsor &amp; Give Back">Sponsor &amp; Give Back</option>
+                  <option value="General Enquiries">General Enquiries</option>
+              </select>
+            </div>
+            <div class="form__field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button class="btn btn--gold btn--lg" type="submit">Work With Us</button>
+            <p id="form-status" class="form__status" role="status" aria-live="polite" style="display:none;"></p>
+          </form>
+
+          <aside class="contact-aside">
+            <h3>Reach us directly</h3>
+            <p>Email<br><a href="mailto:info@rerwacollective.org">info@rerwacollective.org</a></p>
+            <p>Location<br><strong>Kigali, Rwanda</strong></p>
+            <div class="pull-quote" style="margin: var(--space-md) 0 0; border-left-width: 3px;">
+              <p style="font-size: 1.15rem;">Meaningful work often begins with a conversation.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
   </main>
+
   <footer class="site-footer">
     <div class="container">
-      <div class="site-footer__brand">
-        <div class="site-footer__brand-name"><svg class="site-footer__brand-mark" viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#1a2350" d="M400 170 L620 430 L560 430 L400 240 L240 430 L180 430 Z"/><path fill="#b8862f" d="M400 320 L560 510 L500 510 L400 390 L300 510 L240 510 Z"/></svg>RERWA</div>
-        <p class="site-footer__tagline">Principled people. Meaningful lives.</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="who-we-are.html">Who We Are</a></li>
+            <li><a href="our-approach.html">Our Approach</a></li>
+            <li><a href="what-we-do.html">What We Do</a></li>
+            <li><a href="research-insights.html">Research &amp; Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Engage</h3>
+          <ul>
+            <li><a href="contact.html">Work With Us</a></li>
+            <li><a href="contact.html#research-content-partnerships">Partnerships</a></li>
+            <li><a href="contact.html#general-enquiries">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="mailto:info@rerwacollective.org">Email</a></li>
+            <li><a href="https://www.linkedin.com/company/rerwa" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/rerwacollective" rel="noopener">Instagram</a></li>
+            <li><a href="https://x.com/rerwacollective" rel="noopener">X</a></li>
+          </ul>
+        </div>
       </div>
-      <nav class="site-footer__col" aria-label="Footer">
-        <h4>EXPLORE</h4>
-        <a href="index.html">Who We Are</a>
-        <a href="what-we-do.html">What We Do</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="site-footer__col">
-        <h4>CONTACT</h4>
-        <a href="mailto:info@rerwacollective.org">info@rerwacollective.org</a>
-        <p style="color:#9aa3be;font-size:0.9rem;">Kigali, Rwanda</p>
+
+      <form class="footer-news" id="newsletter-form" novalidate>
+        <label for="newsletter-email">Stay connected to RERWA's thinking.</label>
+        <input type="email" id="newsletter-email" name="email" placeholder="Your email address" required>
+        <button class="btn btn--gold" type="submit">Subscribe</button>
+        <span class="footer-news__done" role="status" aria-live="polite"></span>
+      </form>
+
+      <div class="footer-base">
+        <span class="tagline">Principled People. Meaningful Lives.</span>
+        <span>Kigali, Rwanda</span>
+        <span>&copy; 2026 RERWA Co. Ltd. All rights reserved.</span>
       </div>
     </div>
-    <p class="site-footer__copyright">&copy; 2026 RERWA Co. Ltd &middot; Principled people. Meaningful lives.</p>
   </footer>
-<script>
-var RERWA_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzzLnGMqHcv6b2Ydl_HMRo7UhRxDsYSkKcoYxowAqUDvSIuCh3no56-zdOQ09nyXuM/exec";
-(function () {
-  var form = document.getElementById('contact-form');
-  if (!form) return;
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var s = document.getElementById('form-status');
-    var b = form.querySelector('button[type="submit"]');
-    var n = document.getElementById('cf-name').value.trim();
-    var em = document.getElementById('cf-email').value.trim();
-    var o = document.getElementById('cf-org').value.trim();
-    var m = document.getElementById('cf-message').value.trim();
-    function show(msg, c) { s.style.display = 'block'; s.style.color = c; s.textContent = msg; }
-    if (!n || !em || !m) { show('Please fill in your name, email, and message.', '#b8862f'); return; }
-    b.disabled = true; b.textContent = 'Sending...';
-    var d = new FormData();
-    d.append('name', n); d.append('email', em);
-    d.append('organisation', o); d.append('message', m);
-    fetch(RERWA_FORM_ENDPOINT, { method: 'POST', body: d }).then(function () {
-      show('Thank you - your message has been sent. We will be in touch soon.', '#1e7a46');
-      document.getElementById('cf-name').value = '';
-      document.getElementById('cf-email').value = '';
-      document.getElementById('cf-org').value = '';
-      document.getElementById('cf-message').value = '';
-      b.disabled = false; b.textContent = 'Send message';
-    }).catch(function () {
-      show('Sorry, something went wrong. Please email info@rerwacollective.org.', '#b8862f');
-      b.disabled = false; b.textContent = 'Send message';
-    });
-  });
-})();
-</script>
+
   <script src="js/main.js"></script>
 </body>
 </html>

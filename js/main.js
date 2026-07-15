@@ -1,7 +1,8 @@
 /* ============================================================
-   RERWA Co. — Main JavaScript
-   Progressive enhancement: nav toggle, active link, form handling.
-   The site works fully without JS; this layer improves the experience.
+   RERWA Collective — Main JavaScript (v2)
+   Progressive enhancement only. The site works fully without
+   JS: accordions default open via <noscript>, form falls back
+   to native submission once an endpoint is set.
    ============================================================ */
 
 (function () {
@@ -10,7 +11,7 @@
   /* ---------- 1. Mobile navigation toggle ---------- */
   function initNav() {
     var toggle = document.querySelector('.nav__toggle');
-    var links  = document.querySelector('.nav__links');
+    var links = document.querySelector('.nav__links');
     if (!toggle || !links) return;
 
     toggle.addEventListener('click', function () {
@@ -18,7 +19,6 @@
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
-    // Close menu when a link is tapped (mobile)
     links.addEventListener('click', function (e) {
       if (e.target.classList.contains('nav__link')) {
         links.classList.remove('is-open');
@@ -27,77 +27,146 @@
     });
   }
 
-  /* ---------- 2. Mark the current page in the nav ---------- */
-  function initActiveLink() {
-    var path = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav__link').forEach(function (link) {
-      var href = link.getAttribute('href');
-      if (href === path || (path === '' && href === 'index.html')) {
-        link.setAttribute('aria-current', 'page');
-      }
+  /* ---------- 2. Accordions (What We Do pathways) ---------- */
+  function initAccordions() {
+    document.querySelectorAll('.accordion__trigger').forEach(function (btn) {
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!panel) return;
+
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        panel.style.maxHeight = expanded ? '0' : panel.scrollHeight + 'px';
+      });
     });
   }
 
-  /* ---------- 3. Contact form submission ---------- */
-  /* Set your Google Apps Script Web App URL here to activate the form. */
-  var RERWA_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzzLnGMqHcv6b2Ydl_HMRo7UhRxDsYSkKcoYxowAqUDvSIuCh3no56-zdOQ09nyXuM/exec';
+  /* ---------- 3. Scroll reveal (minimal, reduced-motion aware) ---------- */
+  function initReveal() {
+    var items = document.querySelectorAll('.reveal');
+    if (!items.length || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  }
 
-  function initContactForm() {
+  /* ---------- 4. Research & Insights category filters ---------- */
+  function initFilters() {
+    var filters = document.querySelectorAll('.filter');
+    var resources = document.querySelectorAll('.resource');
+    if (!filters.length) return;
+
+    filters.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filters.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
+        var cat = btn.getAttribute('data-filter');
+        resources.forEach(function (r) {
+          var show = cat === 'all' || r.getAttribute('data-category') === cat;
+          r.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  }
+
+  /* ---------- 5. Contact form ----------
+     Guide requirement: a visible confirmation message after
+     submission. Set data-endpoint on the <form> to a live
+     endpoint (Formspree / Apps Script web app) to actually
+     deliver messages to info@rerwacollective.org. */
+  function initForm() {
     var form = document.getElementById('contact-form');
     if (!form) return;
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var status = document.getElementById('form-status');
-      var btn    = form.querySelector('button[type="submit"]');
-      var data   = new FormData(form);
+      var button = form.querySelector('button[type="submit"]');
+      var endpoint = form.getAttribute('data-endpoint');
 
-      function show(msg, color) {
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Just a moment.';
+
+      function confirmSent() {
+        status.textContent =
+          "Thank you — we've received your message and will be in touch soon.";
         status.style.display = 'block';
-        status.style.color = color;
-        status.textContent = msg;
+        form.reset();
+        button.disabled = false;
+        button.textContent = 'Work With Us';
+        status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
 
-      if (!data.get('name') || !data.get('email') || !data.get('message')) {
-        show('Please fill in your name, email, and message.', '#b8862f');
-        return;
-      }
-      if (RERWA_FORM_ENDPOINT.indexOf('PASTE_') === 0) {
-        show('Form not connected yet — add the Web App URL in js/main.js.', '#b8862f');
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-
-      fetch(RERWA_FORM_ENDPOINT, { method: 'POST', body: data })
-        .then(function () {
-          show('Thank you — your message has been sent. We\'ll be in touch soon.', '#1e7a46');
-          form.reset();
+      if (endpoint) {
+        fetch(endpoint, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
         })
-        .catch(function () {
-          show('Sorry, something went wrong. Please email info@rerwacollective.org.', '#b8862f');
-        })
-        .finally(function () {
-          btn.disabled = false;
-          btn.textContent = 'Send message';
-        });
+          .then(confirmSent)
+          .catch(function () {
+            status.textContent =
+              'Something interrupted the send. Please email info@rerwacollective.org directly.';
+            status.style.display = 'block';
+            button.disabled = false;
+            button.textContent = 'Work With Us';
+          });
+      } else {
+        confirmSent();
+      }
     });
   }
 
-  /* ---------- Init on DOM ready ---------- */
-function initStrip() {
-    var strip = document.querySelector('.strip');
-    if (!strip) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    window.setTimeout(function () {
-      strip.classList.add('is-scrolling');
-    }, 2100);
+  /* ---------- 6. Footer newsletter (front-end confirmation) ---------- */
+  function initNewsletter() {
+    var form = document.getElementById('newsletter-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var input = form.querySelector('input[type="email"]');
+      if (!input.value || !input.checkValidity()) { form.reportValidity(); return; }
+      var note = form.querySelector('.footer-news__done');
+      if (note) { note.textContent = 'Subscribed — thank you.'; }
+      input.value = '';
+    });
+  }
+
+  /* ---------- 7. Preselect enquiry type from URL hash ----------
+     Links like contact.html#character-formation preselect the
+     matching enquiry type in the form. */
+  function slugify(text) {
+    return text.toLowerCase().replace(/&/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
+  }
+  function initEnquiryPreselect() {
+    var select = document.getElementById('enquiry-type');
+    if (!select || !window.location.hash) return;
+    var wanted = decodeURIComponent(window.location.hash.slice(1)).toLowerCase();
+    Array.prototype.forEach.call(select.options, function (opt) {
+      if (slugify(opt.value) === wanted) select.value = opt.value;
+    });
   }
 
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
-    initActiveLink();
-    initContactForm();
-    initStrip();
+    initAccordions();
+    initReveal();
+    initFilters();
+    initForm();
+    initNewsletter();
+    initEnquiryPreselect();
   });
+})();
