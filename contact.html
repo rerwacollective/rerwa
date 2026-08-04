@@ -43,10 +43,9 @@
     <div class="container">
       <nav class="nav" aria-label="Primary">
         <a class="nav__brand" href="index.html" aria-label="RERWA home">
-          <!-- Reusable logo component: swap images/rerwa-logo.svg once the
-               compass-needle R logo is delivered (guide Part 7). -->
-          <img class="nav__brand-mark" src="images/rerwa-logo.svg" alt="" width="34" height="34">
-          <span class="nav__brand-name">RERWA</span>
+          <!-- Full RERWA wordmark. Navy shows on light headers; white shows on the dark home hero (CSS-controlled). -->
+          <img class="nav__brand-logo nav__brand-logo--dark" src="images/rerwa-logo.svg" alt="RERWA">
+          <img class="nav__brand-logo nav__brand-logo--light" src="images/rerwa-logo-white.svg" alt="RERWA" aria-hidden="true">
         </a>
         <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
           <span></span><span></span><span></span>
